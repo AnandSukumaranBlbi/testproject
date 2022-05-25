@@ -10,6 +10,10 @@ export default class Styling extends React.Component {
     };
   }
 
+  setColor = (e) => {
+    this.setState({ bgColor: e.target.value });
+  };
+
   render() {
     var color;
     return (
@@ -29,8 +33,9 @@ export default class Styling extends React.Component {
           id="colorTxt1"
           style={{ width: 200 }}
           placeholder="Enter the color"
-          onChange={(e) => this.setState({ bgColor: e.target.value })}
+          onChange={this.setColor}
         ></input>
+
         <br />
         <br />
 
