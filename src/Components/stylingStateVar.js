@@ -18,32 +18,31 @@ export default class Styling extends React.Component {
     var color;
     return (
       <div>
-        <div
-          style={{
-            backgroundColor: this.state.bgColor,
-            width: 500,
-            height: 100,
-            borderStyle: "double",
-            borderColor: "black",
-          }}
-        >
-          <h2> On-change Textbox</h2>
+        <div style={{ float: "left" }}>
+          <div
+            style={{
+              backgroundColor: this.state.bgColor,
+              width: 150,
+
+              borderStyle: "double",
+              borderColor: "black",
+            }}
+          >
+            <h2> Onchange Textbox</h2>
+          </div>
+          <input
+            id="colorTxt1"
+            style={{ width: 150 }}
+            placeholder="Enter the color"
+            onChange={this.setColor}
+          ></input>
         </div>
-        <input
-          id="colorTxt1"
-          style={{ width: 200 }}
-          placeholder="Enter the color"
-          onChange={this.setColor}
-        ></input>
 
-        <br />
-        <br />
-
-        <div>
+        <div style={{ float: "right" }}>
           <div
             style={{
               backgroundColor: this.state.bgColor2,
-              width: 500,
+              width: 150,
               height: 100,
               borderStyle: "double",
               borderColor: "black",
@@ -52,7 +51,7 @@ export default class Styling extends React.Component {
             <h2> On-click Textbox</h2>
           </div>
           <input
-            style={{ width: 200 }}
+            style={{ width: 150 }}
             id="colorTxt2"
             placeholder="Enter the color and press Submit"
             onChange={(e) => (color = e.target.value)}

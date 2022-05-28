@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.assignement4div {
+  width: 100px;
+  height: 100px;
+}
+
+.mainDivs {
+  width: 32%;
+  height: 250px;
+  border-style: groove;
+}
