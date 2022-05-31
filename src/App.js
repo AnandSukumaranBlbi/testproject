@@ -4,6 +4,8 @@ import Styling from "./Components/stylingStateVar";
 import Heading from "./Components/headingAssignment";
 import Timer from "./Components/Timer";
 import "./App.css";
+import Apicall from "./Components/apiCall";
+import Splice from "./Components/splice";
 
 export default class testclass extends React.Component {
   constructor(props) {
@@ -14,13 +16,13 @@ export default class testclass extends React.Component {
       startDate: "",
       endDate: "",
       diff: 0,
-      buttonVal: "",
+      buttonVal: "Start timer",
     };
   }
 
   showtimer = (e) => {
     {
-      this.state.show === false
+      this.state.show === true
         ? this.setState({
             buttonVal: "Start Timer",
           })
@@ -32,7 +34,6 @@ export default class testclass extends React.Component {
     this.setState({
       show: !this.state.show,
     });
-    console.log(this.state.show);
   };
   startTimer = (e) => {
     if (this.state.show === false) {
@@ -42,37 +43,24 @@ export default class testclass extends React.Component {
         },
         function () {
           this.setState({
-            endDate: new Date(),
-          });
-          this.setState({
             diff: (this.state.endDate - this.state.startDate) / 1000,
           });
-          console.log(this.state.endDate);
         }
       );
     } else {
       this.setState({ diff: 0 });
-      this.setState(
-        {
-          startDate: new Date(),
-        },
-        function () {
-          this.setState({
-            startDate: new Date(),
-          });
-          console.log(this.state.startDate);
-        }
-      );
+      this.setState({
+        startDate: new Date(),
+      });
     }
   };
 
   render() {
-    console.log(this.state.show);
     return (
       <div>
         <div class="mainDivs" style={{ float: "left" }}>
           <div style={{ margin: 40 }}>
-            <Heading val="Assignment 1:" />
+            <Heading val="Assignment 1: Part 1" />
 
             <Test />
           </div>
@@ -80,16 +68,28 @@ export default class testclass extends React.Component {
 
         <div class="mainDivs" style={{ float: "left" }}>
           <div style={{ margin: 30 }}>
-            <Heading val="Assignment 2:" />
+            <Heading val="Assignment 1: Part 2" />
             <Styling />
           </div>
         </div>
         <div class="mainDivs" style={{ float: "left" }}>
           <div style={{ margin: 5 }}>
-            <Heading val="Assignment 3 and 4:" />
+            <Heading val="Assignment 2:" />
             Duration : {this.state.diff} Seconds
-            <button onClick={this.showtimer}>Assignment 4</button>
+            <button onClick={this.showtimer}>{this.state.buttonVal}</button>
             {this.state.show === true && <Timer startTimer={this.startTimer} />}
+          </div>
+        </div>
+        <div class="mainDivs" style={{ height: 400, float: "left" }}>
+          <div style={{ margin: 5 }}>
+            <Heading val="Assignment 3: part 1" />
+            <Splice />
+          </div>
+        </div>
+        <div class="mainDivs" style={{ height: 400, float: "left" }}>
+          <div style={{ margin: 5 }}>
+            <Heading val="Assignment 3: part 2" />
+            <Apicall />
           </div>
         </div>
       </div>
