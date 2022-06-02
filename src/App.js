@@ -6,7 +6,7 @@ import Timer from "./Components/Timer";
 import "./App.css";
 import Apicall from "./Components/apiCall";
 import Splice from "./Components/splice";
-import { Grid } from "@mui/material";
+import { Box, Button, Grid, TextField } from "@mui/material";
 
 export default class testclass extends React.Component {
   constructor(props) {
@@ -75,8 +75,11 @@ export default class testclass extends React.Component {
         <Grid item md={4} sm={6} xs={12}>
           <div class="mainDivs" style={{ float: "left" }}>
             <Heading val="Assignment 2:" />
-            Duration : {this.state.diff} Seconds
-            <button onClick={this.showtimer}>{this.state.buttonVal}</button>
+            <Box>Duration : {this.state.diff} Seconds</Box>
+            <Button variant="contained" onClick={this.showtimer}>
+              <span class="material-symbols-outlined">timer </span>
+              {this.state.buttonVal}
+            </Button>
             {this.state.show === true && <Timer startTimer={this.startTimer} />}
           </div>
         </Grid>

@@ -1,3 +1,4 @@
+import { Button, Grid, TextField } from "@mui/material";
 import React from "react";
 
 var a = 10;
@@ -20,10 +21,16 @@ export default class test extends React.Component {
 
   render() {
     return (
-      <div>
-        <input value={this.state.num}></input>
-        <button onClick={this.update}>Click to Add Value </button>
-      </div>
+      <Grid container spacing={2}>
+        <Grid item>
+          <TextField value={this.state.num}></TextField>
+        </Grid>
+        <Grid item>
+          <Button variant="contained" onClick={this.update}>
+            Click to Add Value
+          </Button>
+        </Grid>
+      </Grid>
     );
   }
 }
