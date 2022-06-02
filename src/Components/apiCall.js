@@ -1,3 +1,4 @@
+import { Button, TextField } from "@mui/material";
 import React from "react";
 
 export default class Apicall extends React.Component {
@@ -46,21 +47,29 @@ export default class Apicall extends React.Component {
             </b>
           </thead>
           <tr>
-            <td>Email:</td>
             <td>
-              <input onChange={this.emailChange}></input>
+              <TextField
+                label="Email ID"
+                variant="standard"
+                onChange={this.emailChange}
+              ></TextField>
             </td>
           </tr>
           <tr>
-            <td>Password:</td>
             <td>
-              <input onChange={this.passwordChange}></input>
+              <TextField
+                label="Password"
+                variant="standard"
+                onChange={this.passwordChange}
+              ></TextField>
             </td>
           </tr>
           <tr>
-            <td></td>
             <td>
-              <button onClick={this.Submit}>Login</button>
+              <br />
+              <Button variant="outlined" onClick={this.Submit}>
+                Login
+              </Button>
             </td>
           </tr>
         </table>

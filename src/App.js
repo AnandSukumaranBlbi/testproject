@@ -6,6 +6,7 @@ import Timer from "./Components/Timer";
 import "./App.css";
 import Apicall from "./Components/apiCall";
 import Splice from "./Components/splice";
+import { Grid } from "@mui/material";
 
 export default class testclass extends React.Component {
   constructor(props) {
@@ -57,42 +58,41 @@ export default class testclass extends React.Component {
 
   render() {
     return (
-      <div>
-        <div class="mainDivs" style={{ float: "left" }}>
-          <div style={{ margin: 40 }}>
+      <Grid container spacing={1}>
+        <Grid item md={4} sm={6} xs={12}>
+          <div class="mainDivs" style={{ float: "left" }}>
             <Heading val="Assignment 1: Part 1" />
 
             <Test />
           </div>
-        </div>
-
-        <div class="mainDivs" style={{ float: "left" }}>
-          <div style={{ margin: 30 }}>
+        </Grid>
+        <Grid item md={4} sm={6} xs={12}>
+          <div class="mainDivs" style={{ float: "left" }}>
             <Heading val="Assignment 1: Part 2" />
             <Styling />
           </div>
-        </div>
-        <div class="mainDivs" style={{ float: "left" }}>
-          <div style={{ margin: 5 }}>
+        </Grid>
+        <Grid item md={4} sm={6} xs={12}>
+          <div class="mainDivs" style={{ float: "left" }}>
             <Heading val="Assignment 2:" />
             Duration : {this.state.diff} Seconds
             <button onClick={this.showtimer}>{this.state.buttonVal}</button>
             {this.state.show === true && <Timer startTimer={this.startTimer} />}
           </div>
-        </div>
-        <div class="mainDivs" style={{ height: 400, float: "left" }}>
-          <div style={{ margin: 5 }}>
-            <Heading val="Assignment 3: part 1" />
+        </Grid>
+        <Grid item md={4} sm={6} xs={12}>
+          <div class="mainDivs" style={{ height: 400, float: "left" }}>
+            <Heading val="Assignment 3/4: part 1" />
             <Splice />
           </div>
-        </div>
-        <div class="mainDivs" style={{ height: 400, float: "left" }}>
-          <div style={{ margin: 5 }}>
-            <Heading val="Assignment 3: part 2" />
+        </Grid>
+        <Grid item md={4} sm={6} xs={12}>
+          <div class="mainDivs" style={{ height: 400, float: "left" }}>
+            <Heading val="Assignment 3/4: part 2" />
             <Apicall />
           </div>
-        </div>
-      </div>
+        </Grid>
+      </Grid>
     );
   }
 }

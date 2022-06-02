@@ -1,78 +1,174 @@
-import React from "react";
+import {
+  Button,
+  Grid,
+  Icon,
+  IconButton,
+  List,
+  ListItemText,
+  TextField,
+} from "@mui/material";
+import React, { Component } from "react";
+import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import Slide from "@mui/material/Slide";
+import ListItem from "@mui/material/ListItem";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import Avatar from "@mui/material/Avatar";
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 export default class Splice extends React.Component {
+  componentDidMount() {
+    fetch("https://reqres.in/api/users?page=2")
+      .then((res) => res.json())
+      .then((resJson) => {
+        console.log(resJson);
+
+        this.setState({ names: resJson.data });
+      });
+  }
   constructor(props) {
     super(props);
 
     this.state = {
       names: [],
-      firstname: "",
-      lastname: "",
+      first_name: "",
+      last_name: "",
+      open: false,
     };
   }
 
-  txtFirstNameChange = (e) => {
+  txtfirst_nameChange = (e) => {
     this.setState({
-      firstname: e.target.value,
+      first_name: e.target.value,
     });
   };
-  txtLastNameChange = (e) => {
+  txtlast_nameChange = (e) => {
     this.setState({
-      lastname: e.target.value,
+      last_name: e.target.value,
     });
   };
   pushData = () => {
     var u = this.state.names;
     u.push({
-      firstname: this.state.firstname,
-      lastname: this.state.lastname,
+      first_name: this.state.first_name,
+      last_name: this.state.last_name,
     });
     this.setState({
       names: u,
     });
   };
-
-  showNames = (name, index) => {
-    return (
-      <div>
-        <b>Index:</b> {index}&nbsp; <b>Firstname:</b> {name.firstname}&nbsp;
-        <b>lastname:</b> {name.lastname}&nbsp;
-        <button onClick={this.splice} value={index}>
-          X
-        </button>
-      </div>
-    );
-  };
   splice = (e) => {
+    console.log(e.target.value);
     var a = this.state.names;
     a.splice(e.target.value, 1);
     this.setState({ names: a });
+  };
+  showNames = (name, index) => {
+    return (
+      <ListItem
+        secondaryAction={
+          <IconButton edge="end" aria-label="delete">
+            <Icon value={index} onClick={this.splice}>
+              delete
+            </Icon>
+          </IconButton>
+        }
+      >
+        <ListItemAvatar>
+          <Avatar>
+            <span class="material-symbols-outlined">
+              <img src={name.avatar} />
+            </span>
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText
+          primary={name.first_name}
+          secondary={name.last_name}
+        ></ListItemText>
+      </ListItem>
+    );
+  };
+
+  handleClose = () => {
+    this.setState({ open: false });
+  };
+  handleClickOpen = () => {
+    this.setState({ open: true });
+  };
+
+  setOpen = () => {
+    this.setState({ open: true });
+  };
+
+  clearall = () => {
+    this.setState({ names: [] });
   };
 
   render() {
     return (
       <div>
-        <table>
-          <tr>
-            <td>Firstname:</td>
-            <td>
-              <input onChange={this.txtFirstNameChange}></input>
-            </td>
-          </tr>
-          <tr>
-            <td>Lastname:</td>
-            <td>
-              <input onChange={this.txtLastNameChange}></input>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <button onClick={this.pushData}>Submit</button>
-            </td>
-          </tr>
-        </table>
+        <Dialog
+          open={this.state.open}
+          TransitionComponent={Transition}
+          keepMounted
+          onClose={this.handleClose}
+          aria-describedby="alert-dialog-slide-description"
+        >
+          <DialogTitle>{"Add Names here"}</DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-slide-description">
+              <table>
+                <tr>
+                  <td>first_name:</td>
+                  <td>
+                    <TextField
+                      label="first_name"
+                      variant="outlined"
+                      onChange={this.txtfirst_nameChange}
+                    ></TextField>
+                  </td>
+                </tr>
+                <tr>
+                  <td>last_name:</td>
+                  <td>
+                    <TextField
+                      label="last_name"
+                      variant="outlined"
+                      onChange={this.txtlast_nameChange}
+                    ></TextField>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>
+                    <br />
+                    <Button variant="contained" onClick={this.pushData}>
+                      Submit
+                    </Button>
+                  </td>
+                </tr>
+              </table>
+              <br />
+            </DialogContentText>
+          </DialogContent>
+        </Dialog>
+        <Button variant="contained" onClick={this.handleClickOpen}>
+          Add New
+        </Button>
+        <Button variant="outlined" onClick={this.clearall}>
+          Clear all
+        </Button>
 
-        {this.state.names.map(this.showNames)}
+        <Grid container style={{ overflow: "scroll" }}>
+          <List style={{ width: 500, height: 250 }}>
+            {this.state.names.map(this.showNames)}
+          </List>
+        </Grid>
       </div>
     );
   }
