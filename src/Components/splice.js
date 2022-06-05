@@ -7,7 +7,7 @@ import {
   ListItemText,
   TextField,
 } from "@mui/material";
-import React, { Component } from "react";
+import React from "react";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
@@ -61,6 +61,7 @@ export default class Splice extends React.Component {
     this.setState({
       names: u,
     });
+    this.handleClose();
   };
   splice = (e) => {
     console.log(e.target.value);
@@ -71,6 +72,7 @@ export default class Splice extends React.Component {
   showNames = (name, index) => {
     return (
       <ListItem
+        key={index}
         secondaryAction={
           <IconButton edge="end" aria-label="delete">
             <Icon value={index} onClick={this.splice}>
@@ -95,7 +97,11 @@ export default class Splice extends React.Component {
   };
 
   handleClose = () => {
-    this.setState({ open: false });
+    this.setState({
+      open: false,
+      first_name: "",
+      last_name: "",
+    });
   };
   handleClickOpen = () => {
     this.setState({ open: true });
@@ -124,21 +130,23 @@ export default class Splice extends React.Component {
             <DialogContentText id="alert-dialog-slide-description">
               <table>
                 <tr>
-                  <td>first_name:</td>
+                  <td>First name:</td>
                   <td>
                     <TextField
                       label="first_name"
                       variant="outlined"
+                      value={this.state.first_name}
                       onChange={this.txtfirst_nameChange}
                     ></TextField>
                   </td>
                 </tr>
                 <tr>
-                  <td>last_name:</td>
+                  <td>Last name:</td>
                   <td>
                     <TextField
                       label="last_name"
                       variant="outlined"
+                      value={this.state.last_name}
                       onChange={this.txtlast_nameChange}
                     ></TextField>
                   </td>
@@ -165,7 +173,7 @@ export default class Splice extends React.Component {
         </Button>
 
         <Grid container style={{ overflow: "scroll" }}>
-          <List style={{ width: 500, height: 250 }}>
+          <List style={{ width: 500, height: 350 }}>
             {this.state.names.map(this.showNames)}
           </List>
         </Grid>

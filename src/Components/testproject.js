@@ -9,6 +9,7 @@ export default class test extends React.Component {
     this.state = {
       num: 0,
     };
+    console.log(this.props);
   }
   update = () => {
     a = a + 10;
@@ -22,10 +23,10 @@ export default class test extends React.Component {
   render() {
     return (
       <Grid container spacing={2}>
-        <Grid item>
+        <Grid item xs={12}>
           <TextField value={this.state.num}></TextField>
         </Grid>
-        <Grid item>
+        <Grid item xs={12}>
           <Button variant="contained" onClick={this.update}>
             Click to Add Value
           </Button>
