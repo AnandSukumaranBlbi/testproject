@@ -43,7 +43,13 @@
 }
 
 .mainDivs {
-  border-style: groove;
+  border-style: outset;
+  border-radius: 2%;
+}
+.appBar {
+  border-radius: 2%;
+  border-style: outset;
+  background-color: whitesmoke;
 }
 
 .material-symbols-outlined {

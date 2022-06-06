@@ -62,13 +62,13 @@ export default class Landing extends React.Component {
           <Grid container xs={12}>
             <Box sx={{ flexGrow: 1 }}>
               <Grid item xs={12} sm={12} md={12} lg={12}>
-                <AppBar position="static">
+                <AppBar class="appBar" position="static">
                   <Toolbar>
                     <Button color="inherit">
                       <Link style={{ color: "inherit" }} to="/">
                         <span class="material-symbols-outlined">
-                          <Typography>NextStack Project</Typography>
                           <img src={imglogo} alt="" />
+                          <Typography>NextStack Project</Typography>
                         </span>
                       </Link>
                     </Button>
