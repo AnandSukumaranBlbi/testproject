@@ -6,6 +6,7 @@ import Apicall from "./apiCall";
 import Styling from "./stylingStateVar";
 import SetTimer from "./setTimer";
 import Heading from "./headingAssignment";
+import imglogo from "../Images/nextstackLogo.svg";
 import {
   AppBar,
   Button,
@@ -61,8 +62,17 @@ export default class Landing extends React.Component {
               <Grid item xs={12} sm={12} md={12} lg={12}>
                 <AppBar position="static">
                   <Toolbar>
-                    &nbsp;
+                    <Button color="inherit">
+                      <Link style={{ color: "inherit" }} to="/">
+                        <span class="material-symbols-outlined">
+                          <Typography>NextStack Project</Typography>
+                          <img src={imglogo} alt="" />
+                        </span>
+                      </Link>
+                    </Button>
+
                     <Hidden lgDown="false">
+                      <Box style={{ width: 150 }}></Box>
                       <Typography
                         variant="h6"
                         component="div"
@@ -118,11 +128,6 @@ export default class Landing extends React.Component {
                         &nbsp;
                       </Typography>
                     </Hidden>
-                    <Button color="inherit">
-                      <span class="material-symbols-outlined">
-                        account_circle
-                      </span>
-                    </Button>
                     <Hidden lgUp="true">
                       <span
                         class="material-symbols-outlined"
@@ -130,7 +135,6 @@ export default class Landing extends React.Component {
                       >
                         menu
                       </span>
-                      <img src="/logo.svg" />
                     </Hidden>
                   </Toolbar>
                 </AppBar>
