@@ -15,6 +15,7 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
+  Drawer,
   Fade,
   Grid,
   Hidden,
@@ -25,6 +26,7 @@ import {
   MenuItem,
   MenuList,
   Paper,
+  Skeleton,
   Slide,
   TextField,
   Toolbar,
@@ -164,6 +166,21 @@ export default class Landing extends React.Component {
               >
                 <Routes>
                   <Route
+                    path="/"
+                    element={
+                      <>
+                        {/* <Heading value="Home" /> */}
+                        <Skeleton variant="text" width={600} height={30} />
+                        <Skeleton variant="circular" width={70} height={70} />
+                        <Skeleton
+                          variant="rectangular"
+                          width={600}
+                          height={400}
+                        />
+                      </>
+                    }
+                  />
+                  <Route
                     path="/assignment1_1"
                     element={
                       <>
@@ -213,6 +230,19 @@ export default class Landing extends React.Component {
               </Box>
             </Grid>
           </Grid>
+
+          {/* <Drawer
+            anchor={this.state.open}
+            open={this.state.open}
+            onClose={this.handleClose}
+          >
+            <List>
+              <ListItem>1</ListItem>
+              <ListItem>2</ListItem>
+              <ListItem>3</ListItem>
+            </List>
+          </Drawer> */}
+
           <Dialog
             open={this.state.open}
             TransitionComponent={Transition}
