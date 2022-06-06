@@ -15,6 +15,7 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
+  Divider,
   Drawer,
   Fab,
   Fade,
@@ -86,7 +87,7 @@ export default class Landing extends React.Component {
                     </Button>
 
                     <Hidden lgDown="false">
-                      <Box style={{ width: 150 }}></Box>
+                      <Box style={{ width: 120 }}></Box>
                       {/* <Tabs
                         value={this.state.value}
                         onChange={this.handleChange}
@@ -104,23 +105,33 @@ export default class Landing extends React.Component {
                         sx={{ flexGrow: 1 }}
                       >
                         <Link style={{ color: "inherit" }} to="/assignment1_1">
-                          <Fab variant="extended">Assignment 1 : Part 1</Fab>
+                          <Fab variant="extended" style={{ borderRadius: 1 }}>
+                            Assignment 1 : Part 1
+                          </Fab>
                         </Link>
                         &nbsp;
                         <Link style={{ color: "inherit" }} to="/assignment1_2">
-                          <Fab variant="extended">Assignment 1 : Part 2</Fab>
+                          <Fab variant="extended" style={{ borderRadius: 1 }}>
+                            Assignment 1 : Part 2
+                          </Fab>
                         </Link>
                         &nbsp;
                         <Link style={{ color: "inherit" }} to="/assignment2">
-                          <Fab variant="extended"> Assignment 2</Fab>
+                          <Fab variant="extended" style={{ borderRadius: 1 }}>
+                            Assignment 2
+                          </Fab>
                         </Link>
                         &nbsp;
                         <Link style={{ color: "inherit" }} to="/assignment3_1">
-                          <Fab variant="extended">Assignment 3/4 : Part 1</Fab>
+                          <Fab variant="extended" style={{ borderRadius: 1 }}>
+                            Assignment 3/4 : Part 1
+                          </Fab>
                         </Link>
                         &nbsp;
                         <Link style={{ color: "inherit" }} to="/assignment3_2">
-                          <Fab variant="extended"> Assignment 3/4 : Part 2</Fab>
+                          <Fab variant="extended" style={{ borderRadius: 1 }}>
+                            Assignment 3/4 : Part 2
+                          </Fab>
                         </Link>
                         &nbsp;
                       </Typography>
@@ -135,6 +146,7 @@ export default class Landing extends React.Component {
                     </Hidden>
                   </Toolbar>
                 </AppBar>
+                <Divider />
               </Grid>
             </Box>
             <Grid item xs={12} sm={12}>
@@ -149,8 +161,7 @@ export default class Landing extends React.Component {
                   }}
                 ></Box>
               </Hidden>
-              <Box
-                class="mainDivs"
+              <Paper
                 style={{
                   marginTop: 20,
                   width: 600,
@@ -222,7 +233,7 @@ export default class Landing extends React.Component {
                     }
                   />
                 </Routes>
-              </Box>
+              </Paper>
             </Grid>
           </Grid>
 
@@ -246,7 +257,10 @@ export default class Landing extends React.Component {
             aria-describedby="alert-dialog-slide-description"
             style={{ position: "absolute", left: 0, bottom: 0 }}
           >
-            <DialogTitle>{"Menu"}</DialogTitle>
+            <DialogTitle style={{ margin: "auto", color: "inherit" }}>
+              {"Menu"}
+            </DialogTitle>
+            <Divider />
             <DialogContent>
               <DialogContentText id="alert-dialog-slide-description">
                 <Typography variant="h1" component="div" sx={{ flexGrow: 1 }}>
@@ -268,6 +282,7 @@ export default class Landing extends React.Component {
                         </Link>
                       </Button>
                     </ListItem>
+                    <Divider />
                     <ListItem>
                       <Button style={{ color: "inherit" }}>
                         <Link
@@ -279,6 +294,7 @@ export default class Landing extends React.Component {
                         </Link>
                       </Button>
                     </ListItem>
+                    <Divider />
                     <ListItem>
                       <Button style={{ color: "inherit" }}>
                         <Link
@@ -290,6 +306,7 @@ export default class Landing extends React.Component {
                         </Link>
                       </Button>
                     </ListItem>
+                    <Divider />
                     <ListItem>
                       <Button style={{ color: "inherit" }}>
                         <Link
@@ -301,6 +318,7 @@ export default class Landing extends React.Component {
                         </Link>
                       </Button>
                     </ListItem>
+                    <Divider />
                     <ListItem>
                       <Button style={{ color: "inherit" }}>
                         <Link
@@ -312,6 +330,7 @@ export default class Landing extends React.Component {
                         </Link>
                       </Button>
                     </ListItem>
+                    <Divider />
                   </List>
                 </Typography>
               </DialogContentText>
