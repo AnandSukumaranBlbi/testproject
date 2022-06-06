@@ -16,6 +16,7 @@ import {
   DialogContentText,
   DialogTitle,
   Drawer,
+  Fab,
   Fade,
   Grid,
   Hidden,
@@ -28,6 +29,8 @@ import {
   Paper,
   Skeleton,
   Slide,
+  Tab,
+  Tabs,
   TextField,
   Toolbar,
   Typography,
@@ -40,7 +43,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export default class Landing extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { open: false };
+    this.state = { open: false, value: 0 };
   }
   handleClose = () => {
     this.setState({
@@ -55,6 +58,15 @@ export default class Landing extends React.Component {
     this.setState({ open: true });
   };
 
+  handleChange = (event, newValue) => {
+    this.setState({ value: newValue });
+  };
+  a11yProps = (index) => {
+    return {
+      id: `action-tab-${index}`,
+      "aria-controls": `action-tabpanel-${index}`,
+    };
+  };
   render() {
     return (
       <div>
@@ -75,58 +87,41 @@ export default class Landing extends React.Component {
 
                     <Hidden lgDown="false">
                       <Box style={{ width: 150 }}></Box>
+                      {/* <Tabs
+                        value={this.state.value}
+                        onChange={this.handleChange}
+                        indicatorColor="primary"
+                        textColor="primary"
+                        variant="fullWidth"
+                        aria-label="action tabs example"
+                      >
+                        <Tab label="Item One" {...this.a11yProps(0)} />
+                        <Tab label="Item Two" {...this.a11yProps(1)} />
+                      </Tabs> */}
                       <Typography
                         variant="h6"
                         component="div"
                         sx={{ flexGrow: 1 }}
                       >
-                        <Button
-                          style={{
-                            color: "inherit",
-                            borderBlockStyle: "groove",
-                            borderBlockColor: "grey",
-                          }}
-                        >
-                          <Link
-                            style={{ color: "inherit" }}
-                            to="/assignment1_1"
-                          >
-                            Assignment 1 : Part 1
-                          </Link>
-                        </Button>
+                        <Link style={{ color: "inherit" }} to="/assignment1_1">
+                          <Fab variant="extended">Assignment 1 : Part 1</Fab>
+                        </Link>
                         &nbsp;
-                        <Button style={{ color: "inherit" }}>
-                          <Link
-                            style={{ color: "inherit" }}
-                            to="/assignment1_2"
-                          >
-                            Assignment 1 : Part 2
-                          </Link>
-                        </Button>
+                        <Link style={{ color: "inherit" }} to="/assignment1_2">
+                          <Fab variant="extended">Assignment 1 : Part 2</Fab>
+                        </Link>
                         &nbsp;
-                        <Button style={{ color: "inherit" }}>
-                          <Link style={{ color: "inherit" }} to="/assignment2">
-                            Assignment 2
-                          </Link>
-                        </Button>
+                        <Link style={{ color: "inherit" }} to="/assignment2">
+                          <Fab variant="extended"> Assignment 2</Fab>
+                        </Link>
                         &nbsp;
-                        <Button style={{ color: "inherit" }}>
-                          <Link
-                            style={{ color: "inherit" }}
-                            to="/assignment3_1"
-                          >
-                            Assignment 3/4 : Part 1
-                          </Link>
-                        </Button>
+                        <Link style={{ color: "inherit" }} to="/assignment3_1">
+                          <Fab variant="extended">Assignment 3/4 : Part 1</Fab>
+                        </Link>
                         &nbsp;
-                        <Button style={{ color: "inherit" }}>
-                          <Link
-                            style={{ color: "inherit" }}
-                            to="/assignment3_2"
-                          >
-                            Assignment 3/4 : Part 2
-                          </Link>
-                        </Button>
+                        <Link style={{ color: "inherit" }} to="/assignment3_2">
+                          <Fab variant="extended"> Assignment 3/4 : Part 2</Fab>
+                        </Link>
                         &nbsp;
                       </Typography>
                     </Hidden>
