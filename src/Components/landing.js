@@ -81,7 +81,9 @@ export default class Landing extends React.Component {
                       <Link style={{ color: "inherit" }} to="/">
                         <span class="material-symbols-outlined">
                           <img src={imglogo} alt="" />
-                          <Typography>NextStack Project</Typography>
+                          <Typography fontFamily={"Segoe UI Emoji"}>
+                            <b>N</b>ext<b>S</b>tack Project
+                          </Typography>
                         </span>
                       </Link>
                     </Button>
@@ -337,6 +339,9 @@ export default class Landing extends React.Component {
             </DialogContent>
           </Dialog>
         </BrowserRouter>
+        <br />
+        <br />
+        <Divider />
       </div>
     );
   }

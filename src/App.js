@@ -9,6 +9,7 @@ import Splice from "./Components/splice";
 import { Box, Button, Grid, TextField } from "@mui/material";
 
 import Landing from "./Components/landing";
+import Footer from "./Components/footer";
 
 export default class testclass extends React.Component {
   constructor(props) {
@@ -24,6 +25,7 @@ export default class testclass extends React.Component {
     return (
       <div>
         <Landing />
+        <Footer />
       </div>
     );
   }
