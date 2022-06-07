@@ -37,6 +37,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
+import Footer from "./footer";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
@@ -72,104 +73,96 @@ export default class Landing extends React.Component {
     return (
       <div>
         <BrowserRouter>
-          <Grid container xs={12}>
-            <Box sx={{ flexGrow: 1 }}>
-              <Grid item xs={12} sm={12} md={12} lg={12}>
-                <AppBar class="appBar" position="static">
-                  <Toolbar>
-                    <Button color="inherit">
-                      <Link style={{ color: "inherit" }} to="/">
-                        <span class="material-symbols-outlined">
-                          <img src={imglogo} alt="" />
-                          <Typography fontFamily={"Segoe UI Emoji"}>
-                            <b>N</b>ext<b>S</b>tack Project
-                          </Typography>
-                        </span>
-                      </Link>
-                    </Button>
-
-                    <Hidden lgDown="false">
-                      <Box style={{ width: 120 }}></Box>
-                      {/* <Tabs
-                        value={this.state.value}
-                        onChange={this.handleChange}
-                        indicatorColor="primary"
-                        textColor="primary"
-                        variant="fullWidth"
-                        aria-label="action tabs example"
-                      >
-                        <Tab label="Item One" {...this.a11yProps(0)} />
-                        <Tab label="Item Two" {...this.a11yProps(1)} />
-                      </Tabs> */}
-                      <Typography
-                        variant="h6"
-                        component="div"
-                        sx={{ flexGrow: 1 }}
-                      >
-                        <Link style={{ color: "inherit" }} to="/assignment1_1">
-                          <Fab variant="extended" style={{ borderRadius: 1 }}>
-                            Assignment 1 : Part 1
-                          </Fab>
-                        </Link>
-                        &nbsp;
-                        <Link style={{ color: "inherit" }} to="/assignment1_2">
-                          <Fab variant="extended" style={{ borderRadius: 1 }}>
-                            Assignment 1 : Part 2
-                          </Fab>
-                        </Link>
-                        &nbsp;
-                        <Link style={{ color: "inherit" }} to="/assignment2">
-                          <Fab variant="extended" style={{ borderRadius: 1 }}>
-                            Assignment 2
-                          </Fab>
-                        </Link>
-                        &nbsp;
-                        <Link style={{ color: "inherit" }} to="/assignment3_1">
-                          <Fab variant="extended" style={{ borderRadius: 1 }}>
-                            Assignment 3/4 : Part 1
-                          </Fab>
-                        </Link>
-                        &nbsp;
-                        <Link style={{ color: "inherit" }} to="/assignment3_2">
-                          <Fab variant="extended" style={{ borderRadius: 1 }}>
-                            Assignment 3/4 : Part 2
-                          </Fab>
-                        </Link>
-                        &nbsp;
-                      </Typography>
-                    </Hidden>
-                    <Hidden lgUp="true">
-                      <span
-                        class="material-symbols-outlined"
-                        onClick={this.handleClickOpen}
-                      >
-                        menu
+          <Grid container spacing={1}>
+            <Grid item xs={12} sm={12} md={12} lg={12}>
+              <AppBar class="appBar" position="static">
+                <Toolbar>
+                  <Button color="inherit">
+                    <Link style={{ color: "inherit" }} to="/">
+                      <span class="material-symbols-outlined">
+                        <img src={imglogo} alt="" />
+                        <Typography fontFamily={"Segoe UI Emoji"}>
+                          <b>N</b>ext<b>S</b>tack Project
+                        </Typography>
                       </span>
-                    </Hidden>
-                  </Toolbar>
-                </AppBar>
-                <Divider />
-              </Grid>
-            </Box>
-            <Grid item xs={12} sm={12}>
-              <Hidden lgDown="false">
-                <Box
-                  style={{
-                    marginTop: 20,
-                    width: 300,
-                    marginLeft: 10,
-                    height: 500,
-                    float: "left",
-                  }}
-                ></Box>
-              </Hidden>
-              <Paper
+                    </Link>
+                  </Button>
+
+                  <Hidden lgDown="false">
+                    <Box style={{ width: 120 }}></Box>
+
+                    <Typography
+                      variant="h6"
+                      component="div"
+                      sx={{ flexGrow: 1 }}
+                    >
+                      <Link style={{ color: "inherit" }} to="/assignment1_1">
+                        <Fab variant="extended" style={{ borderRadius: 1 }}>
+                          Assignment 1 : Part 1
+                        </Fab>
+                      </Link>
+                      &nbsp;
+                      <Link style={{ color: "inherit" }} to="/assignment1_2">
+                        <Fab variant="extended" style={{ borderRadius: 1 }}>
+                          Assignment 1 : Part 2
+                        </Fab>
+                      </Link>
+                      &nbsp;
+                      <Link style={{ color: "inherit" }} to="/assignment2">
+                        <Fab variant="extended" style={{ borderRadius: 1 }}>
+                          Assignment 2
+                        </Fab>
+                      </Link>
+                      &nbsp;
+                      <Link style={{ color: "inherit" }} to="/assignment3_1">
+                        <Fab variant="extended" style={{ borderRadius: 1 }}>
+                          Assignment 3/4 : Part 1
+                        </Fab>
+                      </Link>
+                      &nbsp;
+                      <Link style={{ color: "inherit" }} to="/assignment3_2">
+                        <Fab variant="extended" style={{ borderRadius: 1 }}>
+                          Assignment 3/4 : Part 2
+                        </Fab>
+                      </Link>
+                      &nbsp;
+                    </Typography>
+                  </Hidden>
+                  <Hidden lgUp="true">
+                    <span
+                      class="material-symbols-outlined"
+                      onClick={this.handleClickOpen}
+                    >
+                      menu
+                    </span>
+                  </Hidden>
+                </Toolbar>
+              </AppBar>
+              <Divider />
+            </Grid>
+            <Hidden lgDown="false">
+              <Grid
+                item
+                lg={2}
+                xs={3}
+                sm={12}
                 style={{
                   marginTop: 20,
-                  width: 600,
+                  width: 300,
                   marginLeft: 10,
                   height: 500,
                   float: "left",
+                }}
+              >
+                <Box></Box>
+              </Grid>
+            </Hidden>
+            <Grid item lg={5} xs={12} sm={12}>
+              <Paper
+                style={{
+                  marginTop: 20,
+                  marginLeft: 0,
+                  height: 500,
                 }}
               >
                 <Routes>
@@ -236,6 +229,17 @@ export default class Landing extends React.Component {
                   />
                 </Routes>
               </Paper>
+            </Grid>
+            <Grid
+              item
+              lg={12}
+              style={{
+                marginTop: 20,
+                marginLeft: 0,
+              }}
+            >
+              <Divider />
+              <Footer />
             </Grid>
           </Grid>
 
@@ -342,6 +346,17 @@ export default class Landing extends React.Component {
         <br />
         <br />
         <Divider />
+        {/* <Tabs
+          value={this.state.value}
+          onChange={this.handleChange}
+          indicatorColor="primary"
+          textColor="primary"
+          variant="fullWidth"
+          aria-label="action tabs example"
+        >
+          <Tab label="Item One" {...this.a11yProps(0)} />
+          <Tab label="Item Two" {...this.a11yProps(1)} />
+        </Tabs> */}
       </div>
     );
   }

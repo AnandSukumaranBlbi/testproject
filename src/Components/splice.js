@@ -18,7 +18,7 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
+  return <Slide direction="right" ref={ref} {...props} />;
 });
 
 export default class Splice extends React.Component {
@@ -124,6 +124,7 @@ export default class Splice extends React.Component {
           keepMounted
           onClose={this.handleClose}
           aria-describedby="alert-dialog-slide-description"
+          style={{ position: "absolute", left: 0, bottom: 0 }}
         >
           <DialogTitle>{"Add Names here"}</DialogTitle>
           <DialogContent>
@@ -172,7 +173,7 @@ export default class Splice extends React.Component {
           Clear all
         </Button>
 
-        <Grid container style={{ overflow: "scroll" }}>
+        <Grid container style={{ overflow: "scroll" }} lg={12} sm={12} xs={12}>
           <List style={{ width: 500, height: 350 }}>
             {this.state.names.map(this.showNames)}
           </List>

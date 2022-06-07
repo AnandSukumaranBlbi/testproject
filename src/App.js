@@ -25,7 +25,6 @@ export default class testclass extends React.Component {
     return (
       <div>
         <Landing />
-        <Footer />
       </div>
     );
   }

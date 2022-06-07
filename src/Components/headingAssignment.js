@@ -10,7 +10,7 @@ export default class Heading extends React.Component {
   render() {
     return (
       <Grid container spacing={1}>
-        <Grid item xs={12}>
+        <Grid item lg={12} sm={12} xs={12}>
           <Box
             sx={{
               bgcolor: "background.paper",
