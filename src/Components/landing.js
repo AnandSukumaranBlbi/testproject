@@ -77,7 +77,7 @@ export default class Landing extends React.Component {
             <Grid item xs={12} sm={12} md={12} lg={12}>
               <AppBar class="appBar" position="static">
                 <Toolbar>
-                  <Button color="inherit">
+                  <Button color="inherit" style={{ width: 150 }}>
                     <Link style={{ color: "inherit" }} to="/">
                       <span class="material-symbols-outlined">
                         <img src={imglogo} alt="" />
@@ -171,13 +171,9 @@ export default class Landing extends React.Component {
                     element={
                       <>
                         {/* <Heading value="Home" /> */}
-                        <Skeleton variant="text" width={600} height={30} />
+                        <Skeleton variant="text" xs={12} />
                         <Skeleton variant="circular" width={70} height={70} />
-                        <Skeleton
-                          variant="rectangular"
-                          width={600}
-                          height={400}
-                        />
+                        <Skeleton variant="rectangular" xs={12} height={400} />
                       </>
                     }
                   />
